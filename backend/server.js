@@ -16,7 +16,7 @@ dotenv.config();
 const app=exp()
 // server.js
 app.use(cors({
-  origin: ['https://final-24eg107d46.vercel.app',"http://localhost:5173"],  
+  origin: [process.env.FRONTEND_URL,"http://localhost:5173"],  
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], 
   credentials: true
 }));
