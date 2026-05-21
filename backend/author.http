@@ -1,0 +1,47 @@
+### Author Login
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+    "email":"rrr@gmail.com",
+    "password":"rrr@123"
+}
+
+### Logout
+GET http://localhost:3000/auth/logout
+
+
+### create new article
+POST http://localhost:3000/author-api/article
+Content-Type: application/json
+
+{
+    "author":"69b390941ab043a5a5cf8a2e",
+    "title":"Article-2 published by author-1",
+    "category":"AI",
+    "content":"test article on AI"
+}
+
+### read article
+GET http://localhost:3000/author-api/articles
+
+
+#### update article by author
+PUT http://localhost:3000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleID":"69b3cb5bab1b6643329dea10",
+    "title":"Article-2 published by author-1",
+    "category":"AI",
+    "content":"test article on AI and updated"
+}
+
+### soft delete
+PATCH http://localhost:3000/author-api/articles
+Content-Type: application/json
+
+{
+    "articleID":"69cf6415260c2d611e690794",
+    "isArticleActive":false
+}
