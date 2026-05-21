@@ -28,3 +28,16 @@ userApp.put("/articles",verifyToken("USER"),async(req,res)=>{
     await articleDocument.save()
     res.status(200).json({message:"Comment added successfully",payload:articleDocument})
 })
+
+// Get single article by ID
+userApp.get("/article/:id", verifyToken("USER", "AUTHOR"), async (req, res) => {
+  try {
+    const article = await ArticleModel.findById(req.params.id);
+    if (!article) {
+      return res.status(404).json({ message: "Article not found" });
+    }
+    res.status(200).json({ message: "Article", payload: article });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
+});
